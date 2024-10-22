@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real-Time Chat with Rooms</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    #chat-container { max-width: 800px; margin: 0 auto; padding: 20px; }
+    #messages { border: 1px solid #ddd; padding: 10px; height: 300px; overflow-y: scroll; }
+    #message-input, #private-message-input { width: 100%; padding: 10px; margin-top: 10px; }
+    #private-section { margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <div id="chat-container">
+    <h2>Join a Chat Room</h2>
+    <input id="username" placeholder="Enter your username" autocomplete="off">
+    <input id="room" placeholder="Enter room name" autocomplete="off">
+    <button id="join-chat">Join Chat</button>
+
+    <div id="chat-window" style="display: none;">
+      <h2>Chat Room</h2>
+      <div id="messages"></div>
+      <input id="message-input" placeholder="Type a message..." autocomplete="off">
+      <button id="send-message">Send</button>
+
+      <div id="private-section">
+        <h4>Private Messaging</h4>
+        <input id="recipient-id" placeholder="Recipient socket ID">
+        <input id="private-message-input" placeholder="Private message..." autocomplete="off">
+        <button id="send-private-message">Send Private Message</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="chat.js"></script>
+</body>
+</html>
